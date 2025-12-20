@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultant Scheduler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create Slot</h2>
+        <div class="form-group">
+            <input type="date" id="slot-date">
+            <input type="time" id="slot-time">
+            <button onclick="createSlot()">Create Slot</button>
+        </div>
+        <p id="create-status" style="color: red; font-weight: bold;"></p>
+
+        <hr>
+
+        <h2>Available Slots</h2>
+        <table border="1" id="slots-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <hr>
+
+        <h2>Book a Slot</h2>
+        <div class="form-group">
+            <input type="number" id="book-id" placeholder="Enter Slot ID">
+            <input type="text" id="user-name" placeholder="Your Name">
+            <input type="email" id="user-email" placeholder="Your Email">
+            <button onclick="bookSlot()">Book Now</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
