@@ -31,6 +31,8 @@ Run node server.js to start the backend.
 
 Look for the message:  SERVER IS ACTIVE at http://localhost:5000.
 
+The backend is fully functional on Port 5000 with SQLite. Persistent data can be verified at the /slots endpoint."
+
 Open your index.html file in Chrome (right-click the file and select "Open with Live Server" if using VS Code).
 
 5. API Endpoints List
@@ -76,4 +78,5 @@ Next Improvement: Add a dashboard for consultants to delete or edit their existi
 Next Improvement: Implement automated email confirmations using Nodemailer.
 
 Next Improvement: Add frontend calendar integration for a better user experience.
+
 
