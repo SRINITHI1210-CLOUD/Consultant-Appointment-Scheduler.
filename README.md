@@ -1,6 +1,8 @@
 Track Chosen + Why
 Track: Full-Stack Development (Track E). Why: I chose this track to demonstrate my ability to build a complete end-to-end system. I wanted to master the "handshake" between a persistent SQLite database and a dynamic frontend UI to solve a real-world scheduling problem.
+
 Features Implemented (Checklist)
+
 Slot Creation: Consultants can add specific dates and times for availability via a simple form.
 
 Real-Time Table View: The frontend table updates immediately after data entry without needing a page refresh.
@@ -11,7 +13,7 @@ Persistent Storage: Data is stored in a local SQLite database, ensuring it survi
 
 CORS Integration: The backend is configured to allow secure communication between different local ports.
 
-3. Tech Stack
+ Tech Stack
 Frontend: HTML5, CSS3, Vanilla JavaScript (Fetch API).
 
 Backend: Node.js, Express.js.
@@ -74,3 +76,4 @@ Next Improvement: Add a dashboard for consultants to delete or edit their existi
 Next Improvement: Implement automated email confirmations using Nodemailer.
 
 Next Improvement: Add frontend calendar integration for a better user experience.
+
