@@ -1,54 +1,76 @@
+Track Chosen + Why
+Track: Full-Stack Development (Track E). Why: I chose this track to demonstrate my ability to build a complete end-to-end system. I wanted to master the "handshake" between a persistent SQLite database and a dynamic frontend UI to solve a real-world scheduling problem.
+Features Implemented (Checklist)
+Slot Creation: Consultants can add specific dates and times for availability via a simple form.
 
-Consultant Appointment Scheduler (Track E)
-1. Track Chosen + Why
-Track E: Production-Minded Appointment Scheduling System. I chose this track to demonstrate how to handle shared availability. In a real-world scenario, a consultant might be available across multiple platforms, but once one slot is booked, they are busy for everyone. My logic ensures that booking one instance of a time slot updates all related records to "Booked" instantly.
+Real-Time Table View: The frontend table updates immediately after data entry without needing a page refresh.
 
-2. Features Implemented
-[x] Smart Syncing Logic: When a user books a slot at "10:00 AM", the system finds all other entries for that same time and marks them as "Booked" globally.
+Smart Booking Logic: Records user details (Name/Email) and updates slot status across the system.
 
-[x] Conflict Prevention: Backend check to prevent creating two slots for the same date/time.
+Persistent Storage: Data is stored in a local SQLite database, ensuring it survives server restarts.
 
-[x] Two-Tier Architecture: Clean separation between the Node.js/Express backend and the Vanilla JS frontend.
-
-[x] Data Persistence: Uses SQLite3 so that appointments remain saved even if the server restarts.
-
-[x] Dynamic UI: Real-time table updates that color-code availability (Red for Booked, Green for Available).
+CORS Integration: The backend is configured to allow secure communication between different local ports.
 
 3. Tech Stack
-Frontend: HTML5, CSS3, JavaScript (Fetch API)
+Frontend: HTML5, CSS3, Vanilla JavaScript (Fetch API).
 
-Backend: Node.js, Express.js
+Backend: Node.js, Express.js.
 
-Database: SQLite3
+Database: SQLite3.
+
+Middlewares: CORS, Body-Parser.
 
 4. How to Run Locally
-Prepare the Backend:
+Open your terminal in the Backend folder.
 
-Bash
+Run npm install express sqlite3 cors body-parser to install the necessary tools.
 
-cd backend
-npm install
-node server.js
-Launch the Frontend: Open the frontend folder and open index.html in any browser.
+Run node server.js to start the backend.
+
+Look for the message:  SERVER IS ACTIVE at http://localhost:5000.
+
+Open your index.html file in Chrome (right-click the file and select "Open with Live Server" if using VS Code).
 
 5. API Endpoints List
-GET /slots: Returns all time slots.
+GET /slots: Returns all availability slots as a JSON array.
 
-POST /slots: Creates a new slot.
+POST /slots: Creates a new availability slot (Requires date and time).
 
-POST /book: Books a slot and triggers the global "Booked" status for matching timestamps.
+POST /book: Records a booking and marks the specific slot as "Booked".
 
-6. Data Model
-Table slots: id, date, time, is_booked (0 or 1).
+6. Data Model (Tables/Fields)
+Table: slots
+id: INTEGER (Primary Key)
 
-Table bookings: id, slot_id, name, email.
+date: TEXT (Required)
+
+time: TEXT (Required)
+
+is_booked: INTEGER (0 for Available, 1 for Booked)
+
+Table: bookings
+id: INTEGER (Primary Key)
+
+slot_id: INTEGER (Foreign Key referencing slots)
+
+name: TEXT (Required)
+
+email: TEXT (Required)
 
 7. AI Usage Log
-I used Gemini to architect the "Global Sync" logic. The AI helped me write the SQL UPDATE query that targets the date and time columns specifically, ensuring that booking logic isn't just tied to a single ID, but to the actual time of the appointment.
+Initial Setup: Used AI to scaffold the Express server and SQLite connection strings.
+
+Debugging: Used AI to troubleshoot fetch errors and ensure the backend was receiving JSON data correctly.
+
+UI Design: Used AI to generate the CSS layout for the container and table styling.
 
 8. Trade-offs + Next Improvements
-Trade-off: I used a local SQLite file instead of a cloud database (like MongoDB) to make it easier for the evaluator to run the project without setting up environment variables.
+Trade-off: Used SQLite for simplicity during evaluation instead of a cloud-hosted database.
 
-Improvement: Add User Authentication so only the consultant can add new slots.
+Trade-off: Focused on core functionality over complex user authentication to ensure stability.
 
-Improvement: Add Email Notifications to confirm bookings to the user.
+Next Improvement: Add a dashboard for consultants to delete or edit their existing slots.
+
+Next Improvement: Implement automated email confirmations using Nodemailer.
+
+Next Improvement: Add frontend calendar integration for a better user experience.
