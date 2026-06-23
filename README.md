@@ -1,7 +1,7 @@
 Track Chosen + Why
 Track: Full-Stack Development (Track E). Why: I chose this track to demonstrate my ability to build a complete end-to-end system. I wanted to master the "handshake" between a persistent SQLite database and a dynamic frontend UI to solve a real-world scheduling problem.
 
-Features Implemented (Checklist)
+Features Implemented 
 
 Slot Creation: Consultants can add specific dates and times for availability via a simple form.
 
